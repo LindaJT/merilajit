@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<ul>
+    <li>{{ species.name }}</li>
+    <li>{{ species.description }}</li> 
+    <li>{{ species.category }}</li>
+    <li><a href="{{ url_for('species_edit', species_id=species.id) }}">Muokkaa</a></li>
+</ul>
+  {% endblock %}

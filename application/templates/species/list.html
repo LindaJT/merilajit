@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+      <tr>
+          <th>Species</th>
+          <th>Category</th>
+      </tr>
+      {% for species in species %}
+      <tr>
+          <td>{{ species.name }}</td>
+          <td>{{ species.category }}</td>
+          <td><a href="{{ url_for('species_profile', species_id=species.id ) }}">Lajisivulle</a></td>
+      </tr>
+      {% endfor %}
+  </table>
+  {% endblock %}

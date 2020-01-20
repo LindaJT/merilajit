@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+     <form method="POST" action="{{ url_for('species_edit_form', species_id=species.id) }}">
+        <input type="text" name="name" value="{{species.name}}"/>
+        <input type="text" name="description" value="{{species.description}}">
+        <input type="text" name="category" value="{{species.category}}">
+        <input type="submit" value="Muokkaa"/>
+    </form>
+
+  {% endblock %}

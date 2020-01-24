@@ -9,3 +9,6 @@ Toimintoja:
 - Havaintojen lisääminen lajisivulle 
 - Havainnon kommentointi ja/tai peukuttaminen
 
+Linkki tietokantakaavioon: https://drive.google.com/file/d/1c2OVLOY6oUGdP_tJhnSLRkugCvSeFAYf/view?usp=sharing
+
+Linkki Herokussa toimivaan sovellukseen: https://tsoha-merilajit.herokuapp.com/species

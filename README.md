@@ -12,3 +12,7 @@ Toimintoja:
 Linkki tietokantakaavioon: https://drive.google.com/file/d/1c2OVLOY6oUGdP_tJhnSLRkugCvSeFAYf/view?usp=sharing
 
 Linkki Herokussa toimivaan sovellukseen: https://tsoha-merilajit.herokuapp.com/species
+
+Linkki user storyihin: https://github.com/LindaJT/merilajit/blob/master/documentation/user_stories
+
+

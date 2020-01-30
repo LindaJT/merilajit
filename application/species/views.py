@@ -1,6 +1,7 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.species.models import Species
+from application.species.forms import SpeciesForm
 
 @app.route("/species", methods=["GET"])
 def species_index():
@@ -8,16 +9,19 @@ def species_index():
 
 @app.route("/species/new")
 def species_form():
-    return render_template("species/new.html")
+    return render_template("species/new.html", form = SpeciesForm())
 
 @app.route("/species/", methods=["POST"])
 def species_create():
-    name = request.form.get("name")
-    cat = request.form.get("category")
-    des = request.form.get("description")
-    s = Species(name)
-    s.description = des
-    s.category = cat
+    form = SpeciesForm(request.form)
+
+    if not form.validate():
+        return render_template("species/new.html", form = form)
+
+    s = Species(form.name.data)
+
+    s.description = form.description.data
+    s.category = form.category.data
     db.session().add(s)
     db.session().commit()
 

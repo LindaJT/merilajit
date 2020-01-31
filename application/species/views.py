@@ -1,4 +1,5 @@
 from application import app, db
+from flask_login import login_required
 from flask import redirect, render_template, request, url_for
 from application.species.models import Species
 from application.species.forms import SpeciesForm
@@ -8,10 +9,12 @@ def species_index():
     return render_template("species/list.html", species = Species.query.all())
 
 @app.route("/species/new")
+@login_required
 def species_form():
     return render_template("species/new.html", form = SpeciesForm())
 
 @app.route("/species/", methods=["POST"])
+@login_required
 def species_create():
     form = SpeciesForm(request.form)
 
@@ -32,10 +35,12 @@ def species_profile(species_id):
     return render_template("species/profile.html", species = Species.query.get(species_id))
 
 @app.route("/species/<species_id>/edit/", methods=["GET"]) 
+@login_required
 def species_edit(species_id):
     return render_template("species/edit.html", species = Species.query.get(species_id))   
 
 @app.route("/species/<species_id>/", methods=["POST"])
+@login_required
 def species_edit_form(species_id):
 
     s = Species.query.get(species_id)

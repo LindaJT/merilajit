@@ -7,5 +7,15 @@
     <li>{{ species.description }}</li> 
     <li>{{ species.category }}</li>
     <li><a href="{{ url_for('species_edit', species_id=species.id) }}">Muokkaa</a></li>
+    <li>
+      <form method="POST" action="{{ url_for('species_delete', species_id=species.id) }}">
+        <input type="submit" value="Poista laji"/>
+    </form>
+    </li>
+    <li>
+      <form method="POST" action="{{ url_for('obs_create', species_id=species.id) }}">
+        <input type="submit" value="Nähty!"/>
+      </form>
+    </li>
 </ul>
   {% endblock %}

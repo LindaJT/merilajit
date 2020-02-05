@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('obs_edit', obs_id=obs.id) }}">
+    <table>
+        <tr>
+            <td>
+                {{ form.description.label }}
+            </td>
+            <td> 
+                {{ form.description }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form.date.label }}
+            </td>
+            <td>
+                {{ form.date }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form.ncoordinates.label }}
+            </td>
+            <td>
+                {{ form.ncoordinates }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form.ecoordinates.label }}
+            </td>
+            <td>
+                {{ form.ecoordinates }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Lisää tiedot"/>
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

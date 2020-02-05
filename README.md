@@ -13,6 +13,6 @@ Linkki tietokantakaavioon: https://drive.google.com/file/d/1c2OVLOY6oUGdP_tJhnSL
 
 Linkki Herokussa toimivaan sovellukseen: https://tsoha-merilajit.herokuapp.com/species
 
-Linkki user storyihin: https://github.com/LindaJT/merilajit/blob/master/documentation/user_stories
+Linkki user storyihin: https://github.com/LindaJT/merilajit/blob/master/documentation/user_stories.md
 
-
+Testitunnukset Herokussa: Käyttäjänimi: hello, Salasana: world

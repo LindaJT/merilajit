@@ -6,5 +6,7 @@ class Species(db.Model):
     description = db.Column(db.String(300))
     category = db.Column(db.String(50))
 
+    observations = db.relationship("Observation", backref='species', lazy=True)
+
     def __init__(self, name):
         self.name = name

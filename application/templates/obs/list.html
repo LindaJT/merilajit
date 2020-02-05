@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+      <tr>
+          <th>Id</th>
+          <th>Species id</th>
+          <th>Account id</th>
+      </tr>
+      {% for obs in obs %}
+      <tr>
+          <td>{{ obs.id }}</td>
+          <td>{{ obs.species_id }}</td>
+          <td> {{ obs.account_id }}</td>
+          <td><a href="{{ url_for('obs_form', obs_id=obs.id ) }}">Muokkaa</a></td>
+      </tr>
+      {% endfor %}
+  </table>
+  {% endblock %}

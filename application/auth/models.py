@@ -1,4 +1,5 @@
 from application import db
+from sqlalchemy.sql import text
 
 class User(db.Model):
 
@@ -31,3 +32,16 @@ class User(db.Model):
 
     def is_authenticated(self):
         return True
+
+    @staticmethod
+    def count_observations_by_user():
+        stmt = text("SELECT Account.id, Account.name, COUNT(Observation.id) FROM Account"
+                    " LEFT JOIN Observation ON Observation.account_id = Account.id"
+                    " GROUP BY Account.id")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"id":row[0], "name":row[1], "count":row[2]})
+
+        return response

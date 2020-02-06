@@ -9,33 +9,15 @@
 <table>
     <tr>
         <th>Id</th>
-        <th>Species id</th>
-        <th>Account id</th>
+        <th>Havainnon kuvaus</th>
     </tr>
-    {% for obs in {{ user.observations }} %}
+    {% for obs in user.observations %}
     <tr>
         <td>{{ obs.id }}</td>
-        <td>{{ obs.species_id }}</td>
-        <td> {{ obs.account_id }}</td>
+        <td>{{ obs.description }}</td>
         <td><a href="{{ url_for('obs_form', obs_id=obs.id ) }}">Muokkaa</a></td>
     </tr>
     {% endfor %}
 </table>
 
-<ul>
-    <li>{{ species.name }}</li>
-    <li>{{ species.description }}</li> 
-    <li>{{ species.category }}</li>
-    <li><a href="{{ url_for('species_edit', species_id=species.id) }}">Muokkaa</a></li>
-    <li>
-      <form method="POST" action="{{ url_for('species_delete', species_id=species.id) }}">
-        <input type="submit" value="Poista laji"/>
-    </form>
-    </li>
-    <li>
-      <form method="POST" action="{{ url_for('obs_create', species_id=species.id) }}">
-        <input type="submit" value="Nähty!"/>
-      </form>
-    </li>
-</ul>
   {% endblock %}

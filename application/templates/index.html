@@ -4,4 +4,41 @@
   <p>
     Merilajit
   </p>
+
+  {% if obs_count is defined %}
+  <p>
+    Käyttäjien havaintojen määrä:
+  </p>
+
+  <table>
+    <col width = "130">
+    <col width = "130">
+    <col width = "130">
+    <tr>
+      <td>
+        Käyttäjän id
+      </td>
+      <td>
+        Käyttäjän nimi
+      </td>
+      <td>
+        Havaintojen määrä
+      </td>
+    </tr>
+    {% for user in obs_count %}
+    <tr>
+      <td>
+        {{ user.id }}
+      </td>
+      <td>
+        {{ user.name }}
+      </td>
+      <td>
+        {{ user.count }}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  {% endif %}
 {% endblock %}

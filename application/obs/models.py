@@ -1,9 +1,10 @@
 from application import db
+from datetime import date
 
 class Observation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(300))
-    date = db.Column(db.Date())
+   # date = db.Column(db.Date)
     ncoordinates = db.Column(db.Float())
     ecoordinates = db.Column(db.Float())
 

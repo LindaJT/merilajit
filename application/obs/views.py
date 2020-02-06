@@ -4,6 +4,7 @@ from flask import redirect, render_template, request, url_for
 from application.species.models import Species
 from application.obs.models import Observation
 from application.obs.forms import ObsForm
+from datetime import date
 
 @app.route("/observations", methods=["GET"])
 def obs_index():
@@ -18,24 +19,23 @@ def obs_form(obs_id):
 @app.route("/species/<species_id>/newobs", methods=["POST"])
 @login_required
 def obs_create(species_id):
-    """
-    if not form.validate():
-        return render_template("species/new.html", form = form)
-    """
+    
+   # if not form.validate():
+    #    return render_template("species/new.html", form = form)
     obs = Observation("uusi")
     obs.account_id = current_user.id
     obs.species_id = species_id
     db.session().add(obs)
     db.session().commit()
 
-    return redirect(url_for("species_index"))
+    return redirect(url_for("obs_form", obs_id = obs.id))
 
 @app.route("/observations/<obs_id>/editobs", methods=["POST"])
 @login_required
 def obs_edit(obs_id):
     o = Observation.query.get(obs_id)
     o.description = request.form.get("description") 
-    o.date = request.form.get("date")
+  #  o.date = request.form.get("date")
     o.ncoordinate = request.form.get("ncoordinate")
     o.ecoordinate = request.form.get("ecoordinate")
 

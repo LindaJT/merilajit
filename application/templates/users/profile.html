@@ -10,11 +10,13 @@
     <tr>
         <th>Id</th>
         <th>Havainnon kuvaus</th>
+        <th>Päivämääärä</th>
     </tr>
     {% for obs in user.observations %}
     <tr>
         <td>{{ obs.id }}</td>
         <td>{{ obs.description }}</td>
+        <td>{{ obs.date }}</td>
         <td><a href="{{ url_for('obs_form', obs_id=obs.id ) }}">Muokkaa</a></td>
     </tr>
     {% endfor %}

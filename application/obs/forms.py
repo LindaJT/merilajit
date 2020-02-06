@@ -5,8 +5,7 @@ from datetime import date
 
 class ObsForm(FlaskForm):
     description = StringField("Havainnon kuvaus: ")
-  #  date = DateField(label='Havainnon päivämäärä: ', 
-   # format = '%d-%m-%Y')
+    date = DateField(label='Havainnon päivämäärä: ', format = '%d-%m-%Y')
     ncoordinates = FloatField("Pohjoiskoordinaatti:")
     ecoordinates = FloatField("Itäkoordinaatti: ")
 

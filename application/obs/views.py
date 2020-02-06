@@ -35,7 +35,7 @@ def obs_create(species_id):
 def obs_edit(obs_id):
     o = Observation.query.get(obs_id)
     o.description = request.form.get("description") 
-  #  o.date = request.form.get("date")
+    o.date = request.form.get("date")
     o.ncoordinate = request.form.get("ncoordinate")
     o.ecoordinate = request.form.get("ecoordinate")
 

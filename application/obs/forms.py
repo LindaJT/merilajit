@@ -5,10 +5,10 @@ from wtforms.fields.html5 import DateField
 from datetime import date
 
 class ObsForm(FlaskForm):
-    description = StringField("Havainnon kuvaus: ")
-    date = DateField(label='Havainnon päivämäärä: ')
-    ncoordinates = FloatField("Pohjoiskoordinaatti:")
-    ecoordinates = FloatField("Itäkoordinaatti: ")
+    description = StringField("Havainnon kuvaus: ", [validators.Length(min=2)])
+    date = DateField(label="Havainnon päivämäärä: ")
+    ncoordinates = FloatField("Pohjoiskoordinaatti:", [validators.NumberRange(min=58, max=67)])
+    ecoordinates = FloatField("Itäkoordinaatti: ", [validators.NumberRange(min=16, max=31)])
 
     class Meta:
         csrf = False

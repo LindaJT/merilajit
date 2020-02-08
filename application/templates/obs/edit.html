@@ -10,6 +10,13 @@
             <td> 
                 {{ form.description }}
             </td>
+            <td>
+                <ul>
+                    {% for error in form.description.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
         </tr>
         <tr>
             <td>
@@ -17,6 +24,8 @@
             </td>
             <td>
                 {{ form.date }}
+            </td>
+            <td>
             </td>
         </tr>
         <tr>
@@ -26,6 +35,13 @@
             <td>
                 {{ form.ncoordinates }}
             </td>
+            <td>
+                <ul>
+                    {% for error in form.ncoordinates.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
         </tr>
         <tr>
             <td>
@@ -34,6 +50,13 @@
             <td>
                 {{ form.ecoordinates }}
             </td>
+            <td>
+                <ul>
+                    {% for error in form.ecoordinates.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
         </tr>
         <tr>
             <td colspan="2">
@@ -41,5 +64,6 @@
             </td>
         </tr>
     </table>
+
 </form>
 {% endblock %}

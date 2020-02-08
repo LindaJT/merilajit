@@ -20,8 +20,6 @@ def obs_form(obs_id):
 @login_required
 def obs_create(species_id):
     
-   # if not form.validate():
-    #    return render_template("species/new.html", form = form)
     obs = Observation("uusi")
     obs.account_id = current_user.id
     obs.species_id = species_id
@@ -33,7 +31,9 @@ def obs_create(species_id):
 @app.route("/observations/<obs_id>/editobs", methods=["POST"])
 @login_required
 def obs_edit(obs_id):
-    print("päivämäärä" + request.form.get("date"))
+    form = ObsForm(request.form)
+    if not form.validate():
+        return render_template("obs/edit.html", obs = Observation.query.get(obs_id), form = form)
     o = Observation.query.get(obs_id)
     o.description = request.form.get("description")
     dfrom = request.form.get("date") 

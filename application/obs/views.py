@@ -45,3 +45,12 @@ def obs_edit(obs_id):
     db.session().commit()
 
     return redirect(url_for("species_index"))
+
+@app.route("/observation/<obs_id>/delete", methods=["POST"])
+@login_required
+def observation_delete(obs_id):
+    obs = Observation.query.get(obs_id)
+    db.session.delete(obs)
+    db.session.commit()
+
+    return redirect(url_for("obs_index"))

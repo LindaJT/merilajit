@@ -18,6 +18,11 @@
         <td>{{ obs.description }}</td>
         <td>{{ obs.date }}</td>
         <td><a href="{{ url_for('obs_form', obs_id=obs.id ) }}">Muokkaa</a></td>
+        <td>
+            <form method="POST" action="{{ url_for('observation_delete', obs_id=obs.id) }}">
+                <input type="submit" value="Poista havainto"/>
+            </form>
+        </td>
     </tr>
     {% endfor %}
 </table>

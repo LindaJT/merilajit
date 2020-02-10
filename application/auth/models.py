@@ -5,7 +5,7 @@ class User(db.Model):
 
     __tablename__ = "account"
   
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
                               onupdate=db.func.current_timestamp())
@@ -14,7 +14,7 @@ class User(db.Model):
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
 
-    observations = db.relationship("Observation", backref='account', lazy=True)
+    observations = db.relationship("Observation", backref='account', cascade="all, delete, delete-orphan")
 
     def __init__(self, name, username, password):
         self.name = name

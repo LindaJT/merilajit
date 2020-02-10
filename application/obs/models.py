@@ -8,8 +8,8 @@ class Observation(db.Model):
     ncoordinates = db.Column(db.Float())
     ecoordinates = db.Column(db.Float())
 
-    account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
-    species_id = db.Column(db.Integer, db.ForeignKey('species.id'), nullable =False)
+    account_id = db.Column(db.Integer, db.ForeignKey('account.id', ondelete='CASCADE'), nullable=False)
+    species_id = db.Column(db.Integer, db.ForeignKey('species.id', ondelete='CASCADE'), nullable =False)
 
     def __init__(self, description):
         self.description = description

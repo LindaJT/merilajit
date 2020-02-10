@@ -3,6 +3,9 @@ from flask_login import login_required
 from flask import redirect, render_template, request, url_for
 from application.species.models import Species
 from application.species.forms import SpeciesForm
+from application.obs.models import Observation
+from application.obs.forms import ObsForm
+from application.auth.models import User
 
 @app.route("/species", methods=["GET"])
 def species_index():
@@ -57,6 +60,7 @@ def species_edit_form(species_id):
 @login_required
 def species_delete(species_id):
     s = Species.query.get(species_id)
+
     db.session.delete(s)
     db.session.commit()
 

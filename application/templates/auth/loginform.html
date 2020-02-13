@@ -2,32 +2,26 @@
 
 {% block body %}
 {{ error }}
-<form method="POST" action="{{ url_for('auth_login') }}">
-    <table>
-        <tr>
-            <td>
-                {{ form.username.label }}
-            </td>
-            <td>
-                {{ form.username }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {{ form.password.label }}
-            </td>
-            <td>
-                {{ form.password }}
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Kirjaudu"/>
-            </td>
-        </tr>
-    </table>
+<form class="form-signin" method="POST" action="{{ url_for('auth_login') }}">
+    <h1 class="h3 mb-3 font-weight-normal">Kirjaudu sisään</h1>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+            {{ form.username.label(for='username') }}
+            {{ form.username(class='form-control', id='inputUsername', placeholder='Käyttäjänimi')}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-2"></div>
+            {{ form.password.label(for='password') }}
+            {{ form.password(class='form-control', id='inputPassword', placeholder='Salasana')}}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Kirjaudu sisään</button>
 </form>
 <p>
-    <a href="{{ url_for('user_form') }}">Uusi käyttäjä</a>
+
 </p>
+<h5>
+    <a href="{{ url_for('user_form') }}" class="badge badge-primary">Uusi käyttäjä</a>
+</h5>
 {% endblock %}

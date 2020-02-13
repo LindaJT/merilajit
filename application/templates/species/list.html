@@ -1,17 +1,29 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
+
+<section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Lajilista</h1>
+      <p class="lead text-muted">Tietokannassa olevat merilajit. Lajin profiilisivulla voit lisätä lajihavainnon.</p>
+    </div>
+  </section>
+  <table class="table table-striped">
+    <thead>
       <tr>
-          <th>Species</th>
-          <th>Category</th>
+        <th scope="col">Lajinimi</th>
+        <th scope="col">Lajiryhmä</th>
+        <th scope="col"> </th>
       </tr>
+    </thead>
+    <tbody>
       {% for species in species %}
       <tr>
-          <td>{{ species.name }}</td>
-          <td>{{ species.category }}</td>
-          <td><a href="{{ url_for('species_profile', species_id=species.id ) }}">Lajisivulle</a></td>
+        <td>{{ species.name }}</td>
+        <td>{{ species.category }}</td>
+        <td><a class="btn btn-primary" href="{{ url_for('species_profile', species_id=species.id ) }}" role="button">Lajisivulle</a></td>
       </tr>
       {% endfor %}
+    </tbody>
   </table>
   {% endblock %}

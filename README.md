@@ -9,7 +9,7 @@ Toimintoja:
 - Havaintojen lisääminen lajisivulle 
 - Havainnon kommentointi ja/tai peukuttaminen
 
-![alt text](https://github.com/LindaJT/merilajit/blob/master/documentation/tietokantakaavio.pdf)
+![tietokantakaavio](https://github.com/LindaJT/merilajit/blob/master/documentation/tietokantakaavio.pdf)
 
 Linkki Herokussa toimivaan sovellukseen: https://tsoha-merilajit.herokuapp.com/species
 

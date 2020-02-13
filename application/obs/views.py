@@ -34,12 +34,12 @@ def obs_edit(obs_id):
     form = ObsForm(request.form)
     if not form.validate():
         return render_template("obs/edit.html", obs = Observation.query.get(obs_id), form = form)
-    o = Observation.query.get(obs_id)
-    o.description = request.form.get("description")
+    obs = Observation.query.get(obs_id)
+    obs.description = request.form.get("description")
     dfrom = request.form.get("date") 
-    o.date = datetime.strptime(dfrom, '%Y-%m-%d').date()
-    o.ncoordinate = request.form.get("ncoordinate")
-    o.ecoordinate = request.form.get("ecoordinate")
+    obs.date = datetime.strptime(dfrom, '%Y-%m-%d').date()
+    obs.ncoordinate = request.form.get("ncoordinate")
+    obs.ecoordinate = request.form.get("ecoordinate")
 
 
     db.session().commit()

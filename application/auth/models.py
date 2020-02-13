@@ -33,6 +33,9 @@ class User(db.Model):
     def is_authenticated(self):
         return True
 
+    def roles(self):
+        return ["ADMIN"]
+
     @staticmethod
     def count_observations_by_user():
         stmt = text("SELECT Account.id, Account.name, COUNT(Observation.id) FROM Account"

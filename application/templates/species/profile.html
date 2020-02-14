@@ -2,20 +2,21 @@
 
 {% block body %}
 
-<ul>
-    <li>{{ species.name }}</li>
-    <li>{{ species.description }}</li> 
-    <li>{{ species.category }}</li>
-    <li><a href="{{ url_for('species_edit', species_id=species.id) }}">Muokkaa</a></li>
-    <li>
-      <form method="POST" action="{{ url_for('species_delete', species_id=species.id) }}">
-        <input type="submit" value="Poista laji"/>
+<section class="jumbotron">
+  <div class="container">
+    <h3 class="jumbotron-heading">{{ species.category }}</h3>
+    <h1>{{ species.name }}</h1>
+    <p class="lead text-muted">Lajin kuvaus: {{ species.description }}</p>
+    <form method="POST" action="{{ url_for('obs_create', species_id=species.id) }}">
+      <button type="submit" class="btn btn-primary">Nähty!</button>
     </form>
-    </li>
-    <li>
-      <form method="POST" action="{{ url_for('obs_create', species_id=species.id) }}">
-        <input type="submit" value="Nähty!"/>
-      </form>
-    </li>
-</ul>
+    <p>
+
+    </p>
+    <form method="POST" action="{{ url_for('species_delete', species_id=species.id) }}">
+      <button type="submit" class="btn btn-primary">Poista laji</button>
+  </form>
+  </div>
+</section>
+
   {% endblock %}

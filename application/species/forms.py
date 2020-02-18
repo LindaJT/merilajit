@@ -7,6 +7,6 @@ class SpeciesForm(FlaskForm):
     description = StringField("Lajin kuvaus:", [validators.Length(min=2, max=500)])
     category = SelectField("Kategoria:", choices=[('Punalevä', 'Punalevä'), 
     ('Viherlevä', 'Viherlevä'), ('Ruskolevä', 'Ruskolevä'), ('Näkinpartainen', 'Näkinpartainen')])
- 
+
     class Meta:
         csrf = False

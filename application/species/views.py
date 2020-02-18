@@ -6,6 +6,7 @@ from application.species.forms import SpeciesForm
 from application.obs.models import Observation
 from application.obs.forms import ObsForm
 from application.auth.models import User
+from application.region.models import Region
 
 @app.route("/species", methods=["GET"])
 def species_index():
@@ -14,7 +15,7 @@ def species_index():
 @app.route("/species/new")
 @login_required
 def species_form():
-    return render_template("species/new.html", form = SpeciesForm())
+    return render_template("species/new.html", form = SpeciesForm(), regions = Region.query.all())
 
 @app.route("/species/", methods=["POST"])
 @login_required
@@ -28,6 +29,11 @@ def species_create():
 
     s.description = form.description.data
     s.category = form.category.data
+    regions = request.form.getlist('my_checkbox')
+    for id in regions:
+        reg = Region.query.get(id)
+        reg.regionspecies.append(s)
+    
     db.session().add(s)
     db.session().commit()
 
@@ -35,7 +41,9 @@ def species_create():
 
 @app.route("/species/<species_id>/", methods=["GET"])
 def species_profile(species_id):
-    return render_template("species/profile.html", species = Species.query.get(species_id))
+    species = Species.query.get(species_id)
+    regions = Region.query.with_parent(species)
+    return render_template("species/profile.html", species = species, regions = regions )
 
 @app.route("/species/<species_id>/edit/", methods=["GET"]) 
 @login_required

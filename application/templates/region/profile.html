@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<section class="jumbotron">
+  <div class="container">
+    <h1 class="jumbotron-heading">{{ region.name }}</h1>
+    <p class="lead text-muted">Alueen kuvaus: {{ region.description }}</p>
+    <form method="POST" action="{{ url_for('region_delete', region_id=region.id) }}">
+      <button type="submit" class="btn btn-primary">Poista alue</button>
+  </form>
+  </div>
+</section>
+
+  {% endblock %}

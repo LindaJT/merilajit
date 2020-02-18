@@ -25,6 +25,12 @@
         {{ form.category.label(for='category') }}
         {{ form.category(class='form-control')}}
     </div>
+    {% for region in regions %}
+    <div>
+        <input type="checkbox" value={{ region.id }} class="danger" name='my_checkbox'>
+        <label class="custom-control-label" for="customCheck1">{{ region.name }}</label>
+      </div>
+      {% endfor %}
     <button type="submit" class="btn btn-primary">Lisää uusi laji</button>
 </form>
 

@@ -17,9 +17,11 @@
     <p>
 
     </p>
+    {% if current_user.role == "ADMIN" %}
     <form method="POST" action="{{ url_for('species_delete', species_id=species.id) }}">
       <button type="submit" class="btn btn-primary">Poista laji</button>
   </form>
+  {% endif %}
   </div>
 </section>
 

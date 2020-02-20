@@ -18,7 +18,9 @@ def user_create():
     name = form.name.data
     username = form.username.data
     password = form.password.data
-    role = "USER"
+    role = form.role.data
+
+    print("!!!!!!!!!!!!!!!!!!" + role + "!!!!!!!!!!!!!!!!!1")
 
     user = User(name, username, password, role)
 

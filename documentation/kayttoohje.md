@@ -1,10 +1,10 @@
-Merilajit-sovelluksen käyttöohje
+## Merilajit-sovelluksen käyttöohje
 
 Sovelluksen etusivulla näkyy yhteenveto käyttäjien tekemistä havainnoista. 
 
 Oikeasta yläkulmasta pääsee kirjautumaan sovellukseen. Uusi käyttäjä pääsee rekisteröitymään kirjautumis-näkymästä "uusi käyttäjä"-napista. Tällä hetkellä rekisteröitymislomakkeessa pääsee valitsemaan myös käyttäjän roolin (admin tai user), jotta sovelluksen testaaminen olisi helpompaa. 
 
-Kirjautumisen jälkeen oikeassa yläkulmassa lukee "Hei käyttäjän nimi!". Sitä klikkaamalla käyttäjä pääsee tarkastelemaan omaa profiiliaan, missä näkyy kaikki ko. käyttäjän tekemät havainnot. Admin-käyttäjät pääsevät omalta sivulta myös lisäämään uusia lajeja tai uusia merialueita.
+Kirjautumisen jälkeen oikeassa yläkulmassa lukee "Hei _käyttäjän_ _nimi_!". Sitä klikkaamalla käyttäjä pääsee tarkastelemaan omaa profiiliaan, missä näkyy kaikki ko. käyttäjän tekemät havainnot. Admin-käyttäjät pääsevät omalta sivulta myös lisäämään uusia lajeja tai uusia merialueita.
 
 Uuden lajin voi lisätä "Lisää laji"-linkistä. Lajille tulee antaa nimi, kuvaus ja valita kategoria, sekä merialueet, joilla lajia tavataan.
 

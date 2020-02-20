@@ -16,4 +16,6 @@ Linkki Herokussa toimivaan sovellukseen: https://tsoha-merilajit.herokuapp.com/s
 
 Linkki user storyihin: https://github.com/LindaJT/merilajit/blob/master/documentation/user_stories.md
 
-Testitunnukset Herokussa: Käyttäjänimi: hello, Salasana: world
+Testitunnukset Herokussa: 
+USER role: Käyttäjänimi: hello Salasana: world1
+ADMIN role: Käyttäjänimi: admin Salasana: admin1

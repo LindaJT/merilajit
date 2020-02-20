@@ -6,6 +6,13 @@
     <div class="container">
       <h1 class="jumbotron-heading">Käyttäjän {{ user.name }} oma sivu</h1>
       <p class="lead text-muted">Havaintosi</p>
+      {% if current_user.role == "ADMIN" %}
+        <div class="lead text-muted">
+          <p>Admin-toiminnot: </p>
+          <a class="btn btn-primary" href="{{ url_for('species_form') }} " role="button">Lisää laji</a>
+          <a class="btn btn-primary" href="{{ url_for('region_form') }}" role="button">Lisää uusi merialue</a>
+        </div>
+        {% endif %}
     </div>
   </section>
   <table class="table table-striped">

@@ -25,12 +25,18 @@
         {{ form.category.label(for='category') }}
         {{ form.category(class='form-control')}}
     </div>
+    <div class="form-group">
+        <p>Merialueet, joilla lajia esiintyy:</p>
+    </div>
     {% for region in regions %}
-    <div>
+    <div class="form-group">
         <input type="checkbox" value={{ region.id }} class="danger" name='my_checkbox'>
         <label class="custom-control-label" for="customCheck1">{{ region.name }}</label>
       </div>
       {% endfor %}
+    <p>
+        
+    </p>
     <button type="submit" class="btn btn-primary">Lisää uusi laji</button>
 </form>
 

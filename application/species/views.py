@@ -1,5 +1,5 @@
-from application import app, db
-from flask_login import login_required
+from application import app, db, login_required
+from flask_login import current_user
 from flask import redirect, render_template, request, url_for
 from application.species.models import Species
 from application.species.forms import SpeciesForm
@@ -18,23 +18,23 @@ def species_form():
     return render_template("species/new.html", form = SpeciesForm(), regions = Region.query.all())
 
 @app.route("/species/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def species_create():
     form = SpeciesForm(request.form)
 
     if not form.validate():
         return render_template("species/new.html", form = form)
 
-    s = Species(form.name.data)
+    species = Species(form.name.data)
 
-    s.description = form.description.data
-    s.category = form.category.data
+    species.description = form.description.data
+    species.category = form.category.data
     regions = request.form.getlist('my_checkbox')
     for id in regions:
         reg = Region.query.get(id)
-        reg.regionspecies.append(s)
+        reg.regionspecies.append(species)
     
-    db.session().add(s)
+    db.session().add(species)
     db.session().commit()
 
     return redirect(url_for("species_index"))
@@ -46,18 +46,18 @@ def species_profile(species_id):
     return render_template("species/profile.html", species = species, regions = regions )
 
 @app.route("/species/<species_id>/edit/", methods=["GET"]) 
-@login_required
+@login_required(role="ADMIN")
 def species_edit(species_id):
     return render_template("species/edit.html", species = Species.query.get(species_id))   
 
 @app.route("/species/<species_id>/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def species_edit_form(species_id):
 
-    s = Species.query.get(species_id)
-    s.name = request.form.get("name")
-    s.description = request.form.get("description") 
-    s.category = request.form.get("category")
+    species = Species.query.get(species_id)
+    species.name = request.form.get("name")
+    species.description = request.form.get("description") 
+    species.category = request.form.get("category")
 
     db.session().commit()
 
@@ -65,11 +65,11 @@ def species_edit_form(species_id):
 
 
 @app.route("/species/<species_id>/delete", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def species_delete(species_id):
-    s = Species.query.get(species_id)
+    species = Species.query.get(species_id)
 
-    db.session.delete(s)
+    db.session.delete(species)
     db.session.commit()
 
     return redirect(url_for("species_index"))

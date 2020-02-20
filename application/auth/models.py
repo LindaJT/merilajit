@@ -9,17 +9,18 @@ class User(db.Model):
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
                               onupdate=db.func.current_timestamp())
-
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
+    role = db.Column(db.String(20))
 
     observations = db.relationship("Observation", backref='account', cascade="all, delete, delete-orphan")
 
-    def __init__(self, name, username, password):
+    def __init__(self, name, username, password, role):
         self.name = name
         self.username = username
         self.password = password
+        self.role = role
   
     def get_id(self):
         return self.id
@@ -34,7 +35,9 @@ class User(db.Model):
         return True
 
     def roles(self):
-        return ["ADMIN"]
+        if self.role == "ADMIN":
+            return ["ADMIN"]
+        return ["USER"]
 
     @staticmethod
     def count_observations_by_user():

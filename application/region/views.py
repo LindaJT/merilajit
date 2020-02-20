@@ -1,5 +1,5 @@
-from application import app, db
-from flask_login import login_required
+from application import app, db, login_required
+from flask_login import current_user
 from flask import redirect, render_template, request, url_for
 from application.region.models import Region
 from application.region.forms import RegionForm
@@ -8,12 +8,12 @@ from application.obs.forms import ObsForm
 from application.auth.models import User
 
 @app.route("/region/new")
-@login_required
+@login_required(role="ADMIN")
 def region_form():
     return render_template("region/new.html", form = RegionForm())
 
 @app.route("/region/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def region_create():
     form = RegionForm(request.form)
 
@@ -33,7 +33,7 @@ def region_profile(region_id):
     return render_template("region/profile.html", region = Region.query.get(region_id))
 
 @app.route("/region/<region_id>/delete", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def region_delete(region_id):
     reg = Region.query.get(region_id)
 

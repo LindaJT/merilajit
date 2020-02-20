@@ -2,7 +2,8 @@ from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.auth.models import User
 from application.user.forms import UserForm
-
+from application.species.models import Species
+from application.obs.models import Observation
 @app.route("/user/signin")
 def user_form():
     return render_template("users/signin.html", form = UserForm())
@@ -14,13 +15,14 @@ def user_create():
     if not form.validate():
         return render_template("users/signin.html", form = form)
     
-    n = form.name.data
-    un = form.username.data
-    pw = form.password.data
+    name = form.name.data
+    username = form.username.data
+    password = form.password.data
+    role = "USER"
 
-    u = User(n, un, pw)
+    user = User(name, username, password, role)
 
-    db.session().add(u)
+    db.session().add(user)
     db.session().commit()
 
     return redirect(url_for("auth_login"))

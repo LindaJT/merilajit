@@ -2,29 +2,34 @@
 
 {% block body %}
 
-<h2>Käyttäjän {{ user.name }} oma sivu</h2>
-
-<p>Havaintosi</p>
-
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Havainnon kuvaus</th>
-        <th>Päivämääärä</th>
-    </tr>
-    {% for obs in user.observations %}
-    <tr>
+<section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Käyttäjän {{ user.name }} oma sivu</h1>
+      <p class="lead text-muted">Havaintosi</p>
+    </div>
+  </section>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Havainnon id</th>
+        <th scope="col">Lajin id</th>
+        <th scope="col">Havainnon kuvaus</th>
+        <th scope="col">Havainnon päivämäärä</th>
+        <th scope="col"> </th>
+        <th scope="col"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for obs in user.observations %}
+      <tr>
         <td>{{ obs.id }}</td>
+        <td>{{ obs.species_id }}</td>
         <td>{{ obs.description }}</td>
         <td>{{ obs.date }}</td>
-        <td><a href="{{ url_for('obs_form', obs_id=obs.id ) }}">Muokkaa</a></td>
-        <td>
-            <form method="POST" action="{{ url_for('observation_delete', obs_id=obs.id) }}">
-                <input type="submit" value="Poista havainto"/>
-            </form>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
-
+        <td><a class="btn btn-primary" href="{{ url_for('obs_form', obs_id=obs.id ) }}" role="button">Muokkaa</a></td>
+        <td><a class="btn btn-primary" href="{{ url_for('obs_delete', obs_id=obs.id ) }}" role="button">Poista havainto</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
   {% endblock %}

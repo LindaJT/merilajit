@@ -31,10 +31,13 @@ def obs_create(species_id):
 @app.route("/observations/<obs_id>/editobs", methods=["POST"])
 @login_required
 def obs_edit(obs_id):
+    obs = Observation.query.get(obs_id)
+    if obs.account_id != current_user.id:
+        return login_manager.unauthorized()
     form = ObsForm(request.form)
     if not form.validate():
         return render_template("obs/edit.html", obs = Observation.query.get(obs_id), form = form)
-    obs = Observation.query.get(obs_id)
+
     obs.description = request.form.get("description")
     dfrom = request.form.get("date") 
     obs.date = datetime.strptime(dfrom, '%Y-%m-%d').date()
@@ -48,8 +51,10 @@ def obs_edit(obs_id):
 
 @app.route("/observation/<obs_id>/delete", methods=["POST"])
 @login_required
-def observation_delete(obs_id):
+def obs_delete(obs_id):
     obs = Observation.query.get(obs_id)
+    if obs.account_id != current_user.id:
+        return login_manager.unauthorized()
     db.session.delete(obs)
     db.session.commit()
 

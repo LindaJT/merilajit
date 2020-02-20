@@ -18,6 +18,7 @@ def auth_login():
         error = "No such username or password")
 
     login_user(user)
+    print(user.role)
     return redirect(url_for("index"))
 
 @app.route("/auth/logout")

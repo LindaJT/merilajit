@@ -1,5 +1,5 @@
-from application import app, db
-from flask_login import login_required, current_user
+from application import app, db, login_required, login_manager
+from flask_login import current_user
 from flask import redirect, render_template, request, url_for
 from application.species.models import Species
 from application.obs.models import Observation

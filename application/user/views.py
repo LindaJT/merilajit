@@ -20,8 +20,6 @@ def user_create():
     password = form.password.data
     role = form.role.data
 
-    print("!!!!!!!!!!!!!!!!!!" + role + "!!!!!!!!!!!!!!!!!1")
-
     user = User(name, username, password, role)
 
     db.session().add(user)
@@ -30,5 +28,5 @@ def user_create():
     return redirect(url_for("auth_login"))
 
 @app.route("/user/<user_id>/", methods=["GET"])
-def user_page(user_id):
+def user_profile(user_id):
     return render_template("users/profile.html", user = User.query.get(user_id))

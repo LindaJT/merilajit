@@ -34,7 +34,11 @@
         <td>{{ obs.description }}</td>
         <td>{{ obs.date }}</td>
         <td><a class="btn btn-primary" href="{{ url_for('obs_form', obs_id=obs.id ) }}" role="button">Muokkaa</a></td>
-        <td><a class="btn btn-primary" href="{{ url_for('obs_delete', obs_id=obs.id ) }}" role="button">Poista havainto</a></td>
+        <td>
+          <form method="POST" action="{{ url_for('obs_delete', obs_id=obs.id) }}">
+            <button type="submit" class="btn btn-primary">Poista havainto</button>
+        </form>
+        </td>
       </tr>
       {% endfor %}
     </tbody>

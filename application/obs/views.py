@@ -58,4 +58,4 @@ def obs_delete(obs_id):
     db.session.delete(obs)
     db.session.commit()
 
-    return redirect(url_for("obs_index"))
+    return redirect(url_for("user_profile", user_id = current_user.id))

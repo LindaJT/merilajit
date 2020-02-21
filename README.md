@@ -1,6 +1,6 @@
 Tietokanta Itämeren lajeista, kuten makrolevistä ja vesikasveista. Etusivulla käyttäjä voi tarkastella lajilistoja lajiteltuna esimerkiksi lajityypin tai merialueen mukaan. Jokaisella lajilla on oma tietosivu, josta löytyy lajin tuntomerkit. Lajisivuille käyttäjät voivat lisätä omia havaintojaan kyseisestä lajista. Muut käyttäjät voivat kommentoida havaintoa, esimerkiksi sen luotettavuutta. Omalla profiilisivullaan käyttäjä voi tarkastella kaikkia tekemiään havaintoja. 
 
-Toimintoja:
+### Toimintoja:
 
 - Kirjautuminen
 - Lajilistojen näyttäminen eri kriteerein

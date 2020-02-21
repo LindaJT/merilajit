@@ -1,6 +1,6 @@
-User stories
+## User stories
 
-As a user:
+### As a user:
 - I can register as a user `INSERT INTO Account (date_created, date_modified, name, username, password) VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?, ?)`
 - I can login
 - I can logout
@@ -16,7 +16,7 @@ As a user:
 - I can view all my observations on my profile page `SELECT * FROM Observation LEFT JOIN Account ON Observation.account_id = Account.id WHERE Account.id = ?`
 
 
-As an admin:
+### As an admin:
 
 Same as a user plus:
 

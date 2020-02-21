@@ -1,64 +1,47 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<form method="POST" action="{{ url_for('user_create') }}">
-    <table>
-        <tr>
-            <td>
-                {{ form.name.label }}
-            </td>
-            <td> 
-                {{ form.name }}
-            </td>
-            <td>
-                <ul>
-                    {% for error in form.name.errors %}
-                    <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {{ form.username.label }}
-            </td>
-            <td>
-                {{ form.username }}
-            </td>
-            <td>
-                <ul>
-                    {% for error in form.username.errors %}
-                    <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {{ form.password.label }}
-            </td>
-            <td>
-                {{ form.password }}
-            </td>
-            <td>
-                <ul>
-                    {% for error in form.password.errors %}
-                    <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <div class="form-group">
-                {{ form.role.label(for='role') }}
-                {{ form.role(class='form-control')}}
-            </div>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Rekisteröidy käyttäjäksi "/>
-            </td>
-        </tr>
-    </table>
+
+<form class="form-signin" method="POST" action="{{ url_for('user_create') }}">
+    <h1 class="h3 mb-3 font-weight-normal">Rekisteröidy</h1>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+            {{ form.name.label(for='name') }}
+            {{ form.name(class='form-control', id='inputName', placeholder='Nimi')}}
+        </div>
+        <ul>
+            {% for error in form.name.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        {{ form.username.label(for='username') }}
+        {{ form.username(class='form-control', id='inputUsername', placeholder='Käyttäjänimi')}}
+    </div>
+    <ul>
+        {% for error in form.username.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-2"></div>
+            {{ form.password.label(for='password') }}
+            {{ form.password(class='form-control', id='inputPassword', placeholder='Salasana')}}
+        </div>
+        <ul>
+            {% for error in form.password.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="form-group">
+        {{ form.role.label(for='role') }}
+        {{ form.role(class='form-control')}}
+    </div>
+    <button type="submit" class="btn btn-primary">Rekisteröidy</button>
 </form>
+
 {% endblock %}

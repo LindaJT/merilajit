@@ -21,6 +21,10 @@
     <form method="POST" action="{{ url_for('species_delete', species_id=species.id) }}">
       <button type="submit" class="btn btn-primary">Poista laji</button>
   </form>
+  <p>
+
+  </p>
+  <p<a class="btn btn-primary" href="{{ url_for('species_edit', species_id=species.id ) }}" role="button">Muokkaa</a></p>
   {% endif %}
   </div>
 </section>

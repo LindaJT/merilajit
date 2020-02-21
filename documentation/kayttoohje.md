@@ -10,7 +10,7 @@ Uuden lajin voi lisätä "Lisää laji"-linkistä. Lajille tulee antaa nimi, kuv
 
 Kirjaudu ulos linkkiä klikkaamalla käyttäjä voi kirjautua ulos sovelluksesta. 
 
-Merilajit-linkistä pääsee etusivulle, mistä löytyy yhteenvetokyselyt. Lajilista-linkistä pääsee tarkastelemaan tietokantaan lisättyjä lajeja. Jokaisen lajin nimen ja lajikategorian jälkeen on "Lajisivulle"-painike, mistä pääsee kyseisen lajin profiilisivulle. 
+Merilajit-linkistä pääsee etusivulle, mistä löytyy yhteenvetokyselyt. Lajilista-linkistä pääsee tarkastelemaan tietokantaan lisättyjä lajeja. Lajilistan lajit voi lajitella merialueen mukaan. Jokaisen lajin nimen ja lajikategorian jälkeen on "Lajisivulle"-painike, mistä pääsee kyseisen lajin profiilisivulle. 
 
 Lajin profiilisivulla voi tarkastella lajin tietoja, muokata lajin tietoja, poistaa lajin "Poista laji"-painikkeesta ja lisätä lajihavainnon "Nähty!"-painikkeesta. "Poista laji" ja "muokkaa" painikket näkyvät vain admin käyttäjille.
 

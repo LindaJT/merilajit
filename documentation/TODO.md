@@ -2,9 +2,11 @@
 
 - Lisää yhteenvetokyselyjä
 
-- Etusivun ja käyttäjän profiilisivujen muotoilut
+- Etusivun muotoilu
 
-- Hakutoiminto lajilista sivulle niin, että käyttäjä voi tarkastella lajeja esim. tietyn alueen tai kategorian mukaan
+- Käyttäjän profiilisivun havaintolistaan lajin nimi lajin id:n sijaan
+
+- Hakutoiminto lajilista sivulle niin, että käyttäjä voi tarkastella lajeja esim. ~~tietyn alueen TEHTY!!~~ tai kategorian mukaan
 
 - Salasanan monimutkaisempi validointi ja kryptaus
 

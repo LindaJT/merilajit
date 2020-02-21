@@ -8,6 +8,26 @@
       <p class="lead text-muted">Tietokannassa olevat merilajit. Lajin profiilisivulla voit lisätä lajihavainnon.</p>
     </div>
   </section>
+  <form method="POST" action="{{ url_for('species_select') }}">
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+      <label for="exampleFormControlSelect1">Valitse merialue</label>
+    </div>
+    <div class="col-auto">
+      <select class="form-control" id="region" name="region">
+        {% for region in regions %}
+        <option>{{ region.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Hae</button>
+    </div>
+  </div>
+   </form>
+   <p>
+     
+   </p>
   <table class="table table-striped">
     <thead>
       <tr>

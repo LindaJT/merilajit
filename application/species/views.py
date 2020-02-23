@@ -68,9 +68,20 @@ def species_edit_form(species_id):
         return render_template("species/edit.html", form = form)
 
     species = Species.query.get(species_id)
-    species.name = request.form.get("name")
-    species.description = request.form.get("description") 
-    species.category = request.form.get("category")
+    all_regions = Region.query.all()
+    
+    for reg in all_regions:
+        if species in reg.regionspecies:
+            reg.regionspecies.clear()
+    
+    species.name = form.name.data
+    species.description = form.description.data
+    species.category = form.category.data
+    regions = request.form.getlist('my_checkbox')
+    
+    for id in regions:
+        reg = Region.query.get(id)
+        reg.regionspecies.append(species)
 
     db.session().commit()
 

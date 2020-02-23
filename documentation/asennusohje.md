@@ -1,29 +1,46 @@
 ## Merilajit-sovelluksen asennusohje
 
-Asenna kaikki tarvittavat paketit ajamalla alla oleva koodi juurikansiossa.
+- Lataa ohjelma gitistä.
+
+- Lataa virtuaaliympäristö komennolla 
+
+```
+python3 -m venv venv
+```
+
+- Käynnistä virtuaaliympäristö komennolla
+
+```
+source venv/bin/activate
+```
+
+- Asenna kaikki tarvittavat kirjastot komennolla
 
 ```
 pip install -r requirements.txt
 ```
 
-Käynnistä sovellus ajamalla alla oleva koodi juurikansiossa.
+- Käynnistä sovellus komennolla
 
 ```
 python run.py
 ```
 
+- Avaa selaimessa osoite http://localhost:5000
+
 ## Sovelluksen siirto Herokuun
 
-Lisää projekti Herokuun:
+- Lisää projekti Herokuun:
 
 ```
 heroku config:set HEROKU=1
 ```
 
-Lisää postgre-SQL heroku-projektiin.
+- Lisää postgre-SQL heroku-projektiin.
 
 ```
-heroku pg:psql
 heroku addons:add heroku-postgresql:hobby-dev
 ```
+
+
 

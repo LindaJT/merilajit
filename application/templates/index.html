@@ -1,44 +1,58 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <h2>
-    Tervetuloa!
- </h2>
+<h1 class="mt-5">Tervetuloa merilajit sivustolle!</h1>
 
-  {% if obs_count is defined %}
-  <p>
-    Käyttäjien havaintojen määrä:
+  {% if obs_count_user is defined %}
+  <p class = "lead">
+    Havaintojen määrä käyttäjillä:
   </p>
 
-  <table>
-    <col width = "130">
-    <col width = "130">
-    <col width = "130">
-    <tr>
-      <td>
-        Käyttäjän id
-      </td>
-      <td>
-        Käyttäjän nimi
-      </td>
-      <td>
-        Havaintojen määrä
-      </td>
-    </tr>
-    {% for user in obs_count %}
-    <tr>
-      <td>
-        {{ user.id }}
-      </td>
-      <td>
-        {{ user.name }}
-      </td>
-      <td>
-        {{ user.count }}
-      </td>
-    </tr>
-    {% endfor %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Käyttäjän id</th>
+        <th scope="col">Käyttäjän nimi</th>
+        <th scope="col">Havaintojen määrä</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in obs_count_user %}
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.count }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
   </table>
 
   {% endif %}
+
+  {% if obs_count_species is defined %}
+  <p class = "lead">
+    Havaintojen määrät lajeittain:
+  </p>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Lajin id</th>
+        <th scope="col">Lajin nimi</th>
+        <th scope="col">Havaintojen määrä</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for species in obs_count_species %}
+      <tr>
+        <td>{{ species.id }}</td>
+        <td>{{ species.name }}</td>
+        <td>{{ species.count }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% endif %}
+
 {% endblock %}

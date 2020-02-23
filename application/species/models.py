@@ -1,4 +1,5 @@
 from application import db
+from sqlalchemy.sql import text
 
 class Species(db.Model):
     id = db.Column(db.Integer, primary_key=True,  autoincrement=True)
@@ -10,3 +11,16 @@ class Species(db.Model):
 
     def __init__(self, name):
         self.name = name
+
+    @staticmethod
+    def count_observations_by_species():
+        stmt = text("SELECT Species.id, Species.name, COUNT(Observation.id) FROM Species"
+                    " LEFT JOIN Observation ON Observation.species_id = Species.id"
+                    " GROUP BY Species.id")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"id":row[0], "name":row[1], "count":row[2]})
+
+        return response

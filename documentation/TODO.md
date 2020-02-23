@@ -1,8 +1,8 @@
 ## Mitä puuttuu:
 
-- Lisää yhteenvetokyselyjä
+- ~~Lisää yhteenvetokyselyjä~~
 
-- Etusivun muotoilu
+- ~~Etusivun muotoilu~~
 
 - Käyttäjän profiilisivun havaintolistaan lajin nimi lajin id:n sijaan
 

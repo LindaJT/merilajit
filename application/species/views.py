@@ -56,11 +56,16 @@ def species_profile(species_id):
 @app.route("/species/<species_id>/edit/", methods=["GET"]) 
 @login_required(role="ADMIN")
 def species_edit(species_id):
-    return render_template("species/edit.html", species = Species.query.get(species_id))   
+    return render_template("species/edit.html", species = Species.query.get(species_id), regions = Region.query.all(), form = SpeciesForm())   
 
 @app.route("/species/<species_id>/", methods=["POST"])
 @login_required(role="ADMIN")
 def species_edit_form(species_id):
+
+    form = SpeciesForm(request.form)
+
+    if not form.validate():
+        return render_template("species/edit.html", form = form)
 
     species = Species.query.get(species_id)
     species.name = request.form.get("name")

@@ -1,6 +1,6 @@
 ## Merilajit-sovelluksen käyttöohje
 
-Sovelluksen etusivulla näkyy yhteenveto käyttäjien tekemistä havainnoista. 
+Sovelluksen etusivulla näkyy yhteenvedot käyttäjien tekemistä havainnoista sekä havaintojen määristä lajeittain.
 
 Oikeasta yläkulmasta pääsee kirjautumaan sovellukseen. Uusi käyttäjä pääsee rekisteröitymään kirjautumis-näkymästä "uusi käyttäjä"-napista. Tällä hetkellä rekisteröitymislomakkeessa pääsee valitsemaan myös käyttäjän roolin (admin tai user), jotta sovelluksen testaaminen olisi helpompaa. 
 

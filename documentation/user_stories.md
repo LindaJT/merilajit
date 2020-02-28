@@ -6,14 +6,15 @@
 - I can logout
 
 - I can see a list of species `SELECT * FROM Species`
+- I can see a list of species by region `SELECT * FROM Species LEFT JOIN RegionSpecies ON RegionSpecies.species_id = Species.id LEFT JOIN Region ON Region.id = RegionSpecies.region_id WHERE Region.id = ?`
 - I can go to the species' profile page where I can see the species' name, description and category
 `SELECT * FROM Species WHERE species.id = ?`
 
 
 - I can add an observation related to a certain species `INSERT INTO Observation (account_id, species_id) VALUES (?, ?)`
 - I can add description, date and coordinates to the observation `UPDATE Observation SET descpription=?, date=?, ncoordinates=?, ecoordinates=? WHERE observation.id = ?`
-- I can go to my profile page `SELECT * FROM Account WHERE account.id=?`
-- I can view all my observations on my profile page `SELECT * FROM Observation LEFT JOIN Account ON Observation.account_id = Account.id WHERE Account.id = ?`
+- I can go to my profile page 
+- I can view all my observations on my profile page `SELECT Species.name, Observation.description, Observation.date, Observation.id  FROM Species INNER JOIN Observation ON Observation.species_id = Species.id INNER JOIN Account ON Observation.account_id = Account.id WHERE Account.id = ? `
 
 
 ### As an admin:

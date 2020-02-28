@@ -4,7 +4,7 @@
 
 - ~~Etusivun muotoilu~~
 
-- Käyttäjän profiilisivun havaintolistaan lajin nimi lajin id:n sijaan
+- ~~Käyttäjän profiilisivun havaintolistaan lajin nimi lajin id:n sijaan TEHTY~~
 
 - Hakutoiminto lajilista sivulle niin, että käyttäjä voi tarkastella lajeja esim. ~~tietyn alueen TEHTY!!~~ tai kategorian mukaan
 

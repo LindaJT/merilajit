@@ -10,7 +10,7 @@ Tietokanta Itämeren lajeista, kuten makrolevistä ja vesikasveista. Etusivulla 
 - Havainnon kommentointi ja/tai peukuttaminen
 - Merialueen lisääminen (admin)
 
-![tietokantakaavio](https://github.com/LindaJT/merilajit/blob/master/documentation/tietokantakaavio.pdf)
+![tietokantakaavio](https://github.com/LindaJT/merilajit/blob/master/documentation/tietokantakaavio_final.png)
 
 Linkki Herokussa toimivaan sovellukseen: https://tsoha-merilajit.herokuapp.com/species
 

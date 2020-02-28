@@ -14,7 +14,7 @@
 - I can add an observation related to a certain species `INSERT INTO Observation (account_id, species_id) VALUES (?, ?)`
 - I can add description, date and coordinates to the observation `UPDATE Observation SET descpription=?, date=?, ncoordinates=?, ecoordinates=? WHERE observation.id = ?`
 - I can go to my profile page 
-- I can view all my observations on my profile page `SELECT Species.name, Observation.description, Observation.date, Observation.id  FROM Species INNER JOIN Observation ON Observation.species_id = Species.id INNER JOIN Account ON Observation.account_id = Account.id WHERE Account.id = ? `
+- I can view all my observations on my profile page `SELECT Species.name, Observation.description, Observation.date, Observation.ncoordinates, Observation.ecoordinates, Observation.id  FROM Species INNER JOIN Observation ON Observation.species_id = Species.id INNER JOIN Account ON Observation.account_id = Account.id WHERE Account.id = ? `
 
 
 ### As an admin:

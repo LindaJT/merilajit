@@ -10,6 +10,10 @@
 
 - Salasanan monimutkaisempi validointi ja kryptaus
 
+- Lajisivulle kyseisen lajin havaintojen lukumäärä ja/tai listaus havainnoista
+
+- Alueiden hallinta sivu admineille, missä käyttäjä voisi lisätä, muokata ja poistaa alueita. Tein poistoa varten jo metodin alueiden kontrolleriin, mutta en kerkeä toteuttaa sivua sovellukseen tämän kurssin puitteissa. 
+
 - Kommentointi/peukutus mahdollisuus (ei luultavasti ehdi tämän kurssin aikataulussa)
 
 - Kuvien lisäysmahdollisuus lajeille ja havainnoille (ei luultavasti ehdi tämän kurssin aikataulussa).

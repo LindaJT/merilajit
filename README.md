@@ -1,20 +1,27 @@
-Tietokanta Itämeren lajeista, kuten makrolevistä ja vesikasveista. Etusivulla käyttäjä voi tarkastella lajilistoja lajiteltuna esimerkiksi lajityypin tai merialueen mukaan. Jokaisella lajilla on oma tietosivu, josta löytyy lajin tuntomerkit. Lajisivuille käyttäjät voivat lisätä omia havaintojaan kyseisestä lajista. Muut käyttäjät voivat kommentoida havaintoa, esimerkiksi sen luotettavuutta. Omalla profiilisivullaan käyttäjä voi tarkastella kaikkia tekemiään havaintoja. 
+Tietokanta Itämeren lajeista, kuten makrolevistä ja vesikasveista. Etusivulla käyttäjä voi tarkastella lajilistoja lajiteltuna esimerkiksi merialueen mukaan. Jokaisella lajilla on oma tietosivu, josta löytyy lajin kuvaus. Lajisivuille käyttäjät voivat lisätä omia havaintojaan kyseisestä lajista. Omalla profiilisivullaan käyttäjä voi tarkastella kaikkia tekemiään havaintoja sekä muokata tai poistaa havaintoja. 
 
 ### Toimintoja:
 
 - Kirjautuminen
-- Lajilistojen näyttäminen eri kriteerein
-- Uusien lajisivujen lisääminen (admin)
-- Lajisivujen muokkaaminen ja poisto (admin)
-- Havaintojen lisääminen lajisivulle 
-- Havainnon kommentointi ja/tai peukuttaminen
+- Lajilistojen näyttäminen merialueen mukaan
+- Uusien lajien lisääminen (admin)
+- Lajien muokkaaminen ja poisto (admin)
+- Havaintojen lisääminen
+- Omien havaintojen tarkastelu omalla profiilisivulla
+- Omien havaintojen poisto ja muokkaaminen
 - Merialueen lisääminen (admin)
 
 ![tietokantakaavio](https://github.com/LindaJT/merilajit/blob/master/documentation/tietokantakaavio_final.png)
 
 Linkki Herokussa toimivaan sovellukseen: https://tsoha-merilajit.herokuapp.com/species
 
-Linkki user storyihin: https://github.com/LindaJT/merilajit/blob/master/documentation/user_stories.md
+User storyt: https://github.com/LindaJT/merilajit/blob/master/documentation/user_stories.md
+
+Asennusohje: https://github.com/LindaJT/merilajit/blob/master/documentation/asennusohje.md
+
+Käyttöohje: https://github.com/LindaJT/merilajit/blob/master/documentation/kayttoohje.md
+
+TODO-listaus: https://github.com/LindaJT/merilajit/blob/master/documentation/TODO.md
 
 Testitunnukset Herokussa: 
 USER role: Käyttäjänimi: hello Salasana: world1

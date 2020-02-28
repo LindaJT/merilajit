@@ -15,8 +15,11 @@ def species_index():
 @app.route("/species/select/", methods=["POST"])
 def species_select():
     region_name = request.form.get("region")
-    region = Region.query.filter_by(name=region_name).first()
-    species = Region.query.get(region.id).regionspecies
+    if region_name == "Kaikki":
+        species = Species.query.all()
+    else:
+        region = Region.query.filter_by(name=region_name).first()
+        species = Region.query.get(region.id).regionspecies
 
     return render_template("species/list.html", species = species, regions = Region.query.all())
 

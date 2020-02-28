@@ -17,7 +17,7 @@ class Observation(db.Model):
 
     @staticmethod
     def observations_by_user(user_id):
-        stmt = text("SELECT Species.name, Observation.description, Observation.date, Observation.id  FROM Species "
+        stmt = text("SELECT Species.name, Observation.description, Observation.date, Observation.ncoordinates, Observation.ecoordinates, Observation.id  FROM Species "
                     "INNER JOIN Observation ON Observation.species_id = Species.id "
                     "INNER JOIN Account ON Observation.account_id = Account.id "
                     " WHERE Account.id = :x")
@@ -25,6 +25,6 @@ class Observation(db.Model):
 
         response = []
         for row in res:
-            response.append({"name":row[0], "description":row[1], "date":row[2], "id":row[3]})
+            response.append({"name":row[0], "description":row[1], "date":row[2], "ncoordinates":row[3], "ecoordinates":row[4], "id":row[5]})
 
         return response

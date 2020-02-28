@@ -41,8 +41,8 @@ def obs_edit(obs_id):
     obs.description = request.form.get("description")
     dfrom = request.form.get("date") 
     obs.date = datetime.strptime(dfrom, '%Y-%m-%d').date()
-    obs.ncoordinate = request.form.get("ncoordinate")
-    obs.ecoordinate = request.form.get("ecoordinate")
+    obs.ncoordinates = request.form.get("ncoordinates")
+    obs.ecoordinates = request.form.get("ecoordinates")
 
 
     db.session().commit()

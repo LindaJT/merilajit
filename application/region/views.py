@@ -26,7 +26,9 @@ def region_create():
     db.session().add(reg)
     db.session().commit()
 
-    return redirect(url_for("species_index"))
+    user_id = current_user.id
+
+    return redirect(url_for("user_profile", user_id = user_id))
 
 @app.route("/region/<region_id>/", methods=["GET"])
 def region_profile(region_id):

@@ -4,6 +4,7 @@ from application.auth.models import User
 from application.user.forms import UserForm
 from application.species.models import Species
 from application.obs.models import Observation
+
 @app.route("/user/signin")
 def user_form():
     return render_template("users/signin.html", form = UserForm())

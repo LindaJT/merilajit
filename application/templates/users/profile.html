@@ -15,22 +15,26 @@
         {% endif %}
     </div>
   </section>
+
+  {% if obs_user is defined %}
+  <p class = "lead">
+    Havaintosi:
+  </p>
+
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Havainnon id</th>
-        <th scope="col">Lajin id</th>
+        <th scope="col">Lajinimi</th>
         <th scope="col">Havainnon kuvaus</th>
         <th scope="col">Havainnon päivämäärä</th>
-        <th scope="col"> </th>
-        <th scope="col"> </th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      {% for obs in user.observations %}
+      {% for obs in obs_user %}
       <tr>
-        <td>{{ obs.id }}</td>
-        <td>{{ obs.species_id }}</td>
+        <td>{{ obs.name }}</td>
         <td>{{ obs.description }}</td>
         <td>{{ obs.date }}</td>
         <td><a class="btn btn-primary" href="{{ url_for('obs_form', obs_id=obs.id ) }}" role="button">Muokkaa</a></td>
@@ -43,4 +47,6 @@
       {% endfor %}
     </tbody>
   </table>
+
+  {% endif %}
   {% endblock %}

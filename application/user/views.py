@@ -1,5 +1,6 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
+from flask_login import current_user
 from application.auth.models import User
 from application.user.forms import UserForm
 from application.species.models import Species
@@ -30,4 +31,4 @@ def user_create():
 
 @app.route("/user/<user_id>/", methods=["GET"])
 def user_profile(user_id):
-    return render_template("users/profile.html", user = User.query.get(user_id))
+    return render_template("users/profile.html", user = User.query.get(user_id), obs_user = Observation.observations_by_user(user_id))

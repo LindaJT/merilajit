@@ -1,5 +1,6 @@
 from application import db
 from datetime import date
+from sqlalchemy.sql import text
 
 class Observation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -13,3 +14,17 @@ class Observation(db.Model):
 
     def __init__(self, description):
         self.description = description
+
+    @staticmethod
+    def observations_by_user(user_id):
+        stmt = text("SELECT Species.name, Observation.description, Observation.date, Observation.id  FROM Species "
+                    "INNER JOIN Observation ON Observation.species_id = Species.id "
+                    "INNER JOIN Account ON Observation.account_id = Account.id "
+                    " WHERE Account.id = :x")
+        res = db.engine.execute(stmt, x=user_id)
+
+        response = []
+        for row in res:
+            response.append({"name":row[0], "description":row[1], "date":row[2], "id":row[3]})
+
+        return response

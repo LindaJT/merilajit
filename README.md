@@ -1,3 +1,5 @@
+## Merilajit-sovellus
+
 Tietokanta Itämeren lajeista, kuten makrolevistä ja vesikasveista. Etusivulla käyttäjä voi tarkastella lajilistoja lajiteltuna esimerkiksi merialueen mukaan. Jokaisella lajilla on oma tietosivu, josta löytyy lajin kuvaus. Lajisivuille käyttäjät voivat lisätä omia havaintojaan kyseisestä lajista. Omalla profiilisivullaan käyttäjä voi tarkastella kaikkia tekemiään havaintoja sekä muokata tai poistaa havaintoja. 
 
 ### Toimintoja:
@@ -13,7 +15,7 @@ Tietokanta Itämeren lajeista, kuten makrolevistä ja vesikasveista. Etusivulla 
 
 ![tietokantakaavio](https://github.com/LindaJT/merilajit/blob/master/documentation/tietokantakaavio_final.png)
 
-Linkki Herokussa toimivaan sovellukseen: https://tsoha-merilajit.herokuapp.com/species
+Linkki Herokussa toimivaan sovellukseen: https://tsoha-merilajit.herokuapp.com/
 
 User storyt: https://github.com/LindaJT/merilajit/blob/master/documentation/user_stories.md
 
